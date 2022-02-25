@@ -53,7 +53,7 @@ transmitByte('\n');
 //Read first register contents
 z=i2c_start((INA219<<1)+I2C_WRITE);
 //z=i2c_start(writeadr);
-i2c_write(0x04);
+i2c_write(0x01);
 i2c_stop();
 _delay_ms(15);
 x=i2c_start((INA219<<1)+I2C_READ);
