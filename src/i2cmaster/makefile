@@ -1,7 +1,7 @@
 # ----------------------------------------------------------------------------
-# Makefile to compile and link the TWI master library and test program
+# Makefile to compile and link the I2C Master library and test program
 # Author: Peter Fleury
-# File:   $Id: makefile.twimaster,v 1.2 2015/09/16 13:09:15 peter Exp $
+# File:   $Id: makefile.i2cmaster,v 1.3 2015/09/16 11:30:30 peter Exp $
 #
 # Adjust MCU and F_CPU below to your AVR target 
 #----------------------------------------------------------------------------
@@ -20,7 +20,7 @@
 
 
 # MCU name
-MCU = atmega8
+MCU = atmega328p
 
 
 # Processor frequency.
@@ -28,15 +28,15 @@ MCU = atmega8
 #     processor frequency. You can then use this symbol in your source code to 
 #     calculate timings. Do NOT tack on a 'UL' at the end, this will be done
 #     automatically to create a 32-bit value in your source code.
-F_CPU = 4000000
+F_CPU = 16000000
 
 
 # Target file name (without extension).
-TARGET =  test_i2cmaster
+TARGET =  chipInterface
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = $(TARGET).c twimaster.c
+SRC = $(TARGET).c USART.c
 
 
 # List Assembler source files here.
@@ -46,7 +46,7 @@ SRC = $(TARGET).c twimaster.c
 #     Even though the DOS/Win* filesystem matches both .s and .S the same,
 #     it will preserve the spelling of the filenames, and gcc itself does
 #     care about how the name is spelled on its command-line.
-ASRC =
+ASRC = i2cmaster.S
 
 
 # List any extra directories to look for include files here.
@@ -157,19 +157,19 @@ LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
 #---------------- Programming Options (avrdude) ----------------
 
 # Programming hardware:   Type: avrdude -c ? to get a full listing.
-AVRDUDE_PROGRAMMER = usbasp
+AVRDUDE_PROGRAMMER = "arduino"
 
 # usb, com1 = serial port, lpt1 = parallel port 
-AVRDUDE_PORT = USB
+AVRDUDE_PORT = "/dev/ttyACM0"
 
-AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex
+AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex:i
 #AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep
 
 # Uncomment the following if you do /not/ wish a verification to be performed after programming the device.
 #AVRDUDE_NO_VERIFY = -V
 
 # Disable save mode for fuses
-AVRDUDE_NO_SAFEMODE = -u
+#AVRDUDE_NO_SAFEMODE = -u
 
 # Uncomment the following if you want avrdude's erase cycle counter.
 # Note that this counter needs to be initialized first using -Yn,
@@ -194,7 +194,7 @@ AVRDUDE_NO_SAFEMODE = -u
 #  -B .5 			  1.5mhz 
 #AVRDUDE_SPEED = -B .5
 
-AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
+AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c$(AVRDUDE_PROGRAMMER) -D
 AVRDUDE_FLAGS += $(AVRDUDE_NO_VERIFY)
 AVRDUDE_FLAGS += $(AVRDUDE_NO_SAFEMODE)
 AVRDUDE_FLAGS += $(AVRDUDE_ERASE_COUNTER)

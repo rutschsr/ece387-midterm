@@ -1,7 +1,7 @@
 # ----------------------------------------------------------------------------
-# Makefile to compile and link the I2C Master library and test program
+# Makefile to compile and link the TWI master library and test program
 # Author: Peter Fleury
-# File:   $Id: makefile.i2cmaster,v 1.3 2015/09/16 11:30:30 peter Exp $
+# File:   $Id: makefile.twimaster,v 1.2 2015/09/16 13:09:15 peter Exp $
 #
 # Adjust MCU and F_CPU below to your AVR target 
 #----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ TARGET =  chipInterface
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = $(TARGET).c USART.c
+SRC = $(TARGET).c twimaster.c USART.c
 
 
 # List Assembler source files here.
@@ -46,7 +46,7 @@ SRC = $(TARGET).c USART.c
 #     Even though the DOS/Win* filesystem matches both .s and .S the same,
 #     it will preserve the spelling of the filenames, and gcc itself does
 #     care about how the name is spelled on its command-line.
-ASRC = i2cmaster.S
+ASRC =
 
 
 # List any extra directories to look for include files here.
