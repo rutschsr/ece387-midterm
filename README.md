@@ -30,3 +30,10 @@ INA 219 Register List (Datasheet page 18):
 | 03   | 0x03        | Power |
 | 04   | 0x04        | Current |
 | 05   | 0x05        | Calibration |
+
+
+
+AVRFREEKS help: https://www.avrfreaks.net/forum/i2c-stopping-project-functionality-atmega328p
+
+i2cmaster documentation: https://damadmai.github.io/pfleury/group__pfleury__ic2master.html 
+
