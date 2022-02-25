@@ -10,7 +10,7 @@ Adafruit_INA219 ina219;
 void setup(void) 
 {
   uint32_t currentFrequency;
-  Serial.begin(115200);
+  Serial.begin(9600);
   
   // Initialize the INA219.
   ina219.begin();
