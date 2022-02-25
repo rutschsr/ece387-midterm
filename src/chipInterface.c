@@ -13,7 +13,29 @@
 //SCL is on pin D19 (PC5)
 //SDA is on pin D18 (PC4)
 
+//Define Registers:
+#define CONFIG_REG 0x00
+#define SHUNTV_REG 0x01
+#define BUSV_REG 0x02
+#define POWER_REG 0x03
+#define CURRENT_REG 0x04
+#define CALB_REG 0x05
+
+
+//May need to define data for configuration and calibration registers
+        //(If so, define data here and create function to setup)
+
+
+
 //Any Function Forward Declerations:
+
+/**
+ * @brief 
+ * 
+ * @param adr 
+ * @return unsigned char 
+ */
+unsigned char read_INA_Data(unsigned char adr)
 
 /**
  * @brief 
@@ -23,11 +45,11 @@
 int main(void)
 {
 uint8_t x=1;
+uint8_t y=1;
 uint8_t z=1;
 uint8_t ret;
 uint8_t ret1;
-unsigned char writeadr="0x80";
-unsigned char readadr="0x81";
+
 //initialize the i2c buss
 i2c_init();
 //Initialize USART:
@@ -39,25 +61,17 @@ transmitByte('\n');
 
 //Start i2c Communications:
 
-//May need to write configuration in first.
-//Write Address of first data register.
-// i2c_start_wait(INA219+I2C_WRITE);
-// //i2c_write(INA219); //may be neccessary
-// int z = 0;
-// z=i2c_write(0x01);
-// i2c_stop();
-// printString("Location A");
-// transmitByte('\n');
 
 
 //Read first register contents
-z=i2c_start((INA219<<1)+I2C_WRITE);
-//z=i2c_start(writeadr);
-i2c_write(0x01);
+
+//(write in address of register)
+x=i2c_start((INA219<<1)+I2C_WRITE);
+y=i2c_write(0x02);
 i2c_stop();
 _delay_ms(15);
-x=i2c_start((INA219<<1)+I2C_READ);
-//z=i2c_start(readadr);
+z=i2c_start((INA219<<1)+I2C_READ);
+
 ret=i2c_read(1);
 ret1=i2c_read(0);
 i2c_stop();
@@ -66,6 +80,8 @@ _delay_ms(15);
 printString("Supposed to Print I2C data next");
 transmitByte('\n');
 printByte(x);
+transmitByte('\n');
+printByte(y);
 transmitByte('\n');
 printByte(z);
 transmitByte('\n');
