@@ -21,8 +21,8 @@ def run_command(command):
 print ("Number of arguments: %d" %  len(sys.argv))
 print ("Argument List: %s" % str(sys.argv))
 
-files_to_compile = ['USART','chipInterface','i2cmaster/twimaster']
-directories = ['i2cmaster']
+files_to_compile = ['USART','chipInterface','wire']
+directories = ['']
 file_to_compile = 'chipInterface'
 #Com port on my linux virtual machine
 if len(sys.argv) == 2:
