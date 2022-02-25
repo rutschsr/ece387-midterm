@@ -51,12 +51,13 @@ transmitByte('\n');
 
 
 //Read first register contents
-z=i2c_start(writeadr);
-
+z=i2c_start((INA219<<1)+I2C_WRITE);
+//z=i2c_start(writeadr);
 i2c_write(0x04);
 i2c_stop();
 _delay_ms(15);
-x=i2c_rep_start(readadr);
+x=i2c_start((INA219<<1)+I2C_READ);
+//z=i2c_start(readadr);
 ret=i2c_read(1);
 ret1=i2c_read(0);
 i2c_stop();
