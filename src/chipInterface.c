@@ -35,7 +35,7 @@
  * @param adr 
  * @return unsigned char 
  */
-unsigned char read_INA_Data(unsigned char adr)
+unsigned char read_INA_Data(unsigned char adr);
 
 /**
  * @brief 
