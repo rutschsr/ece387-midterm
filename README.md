@@ -37,3 +37,10 @@ AVRFREEKS help: https://www.avrfreaks.net/forum/i2c-stopping-project-functionali
 
 i2cmaster documentation: https://damadmai.github.io/pfleury/group__pfleury__ic2master.html 
 
+
+
+Calibration Register 
+
+cal=0.04096/(Rshunt*Current LSB)
+
+CurrentLCB=MaxiumumExpectedCurrent/2^15
