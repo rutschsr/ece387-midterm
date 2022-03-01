@@ -50,6 +50,8 @@ CurrentLCB=MaxiumumExpectedCurrent/2^15
 
 Shunt voltage register voltage:
 
+Because resistance = 0.1Ohm, current(mA) = ShuntV/10;
+
 
 Bus Voltage Register:
 Max 4000/16000 = 16/32V
