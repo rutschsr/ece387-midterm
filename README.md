@@ -10,6 +10,8 @@ Intended operation:
 3. Print to serial monitor using USART.
 
 
+I2C requires pull up resistor on SCL and SDA lines, the Adafruit clone breakout board the INA219 I am using has a 10k ohm resistor on each. INA 219 also can function on both 3.3V and 5V logic systems. 0.1 Ohm shunt resistor is included on the breakout board. Can use without programming by pulling shunt voltage out and calculating the value in program. Running in 1khz highspeed I2C mode.
+
 INA219 Chip only operates as a slave device. Most significant byte first. Accessing a particular register on the INA219 is accomplished by writing the appropriate value to the register pointer. (pg 14) The value for the register pointer is the first byte transferred after the slave address byte with R/W bit LOW. 
 
 Slave Address is followed by the address of the data address to be read. This updates the register pointer to point towards the address we want to read.
@@ -39,8 +41,15 @@ i2cmaster documentation: https://damadmai.github.io/pfleury/group__pfleury__ic2m
 
 
 
-Calibration Register 
+Calibration Register: 
 
 cal=0.04096/(Rshunt*Current LSB)
 
 CurrentLCB=MaxiumumExpectedCurrent/2^15
+
+
+Shunt voltage register voltage:
+
+
+Bus Voltage Register:
+Max 4000/16000 = 16/32V
