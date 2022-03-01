@@ -75,7 +75,7 @@ current_mA=(double)rawshuntvoltage/10;
 
 
 //Calc for power: (P=IV)
-power_W=current_mA*0.001*busV;
+power_W=(current_mA/1000)*busV;
 
 
 
@@ -106,6 +106,8 @@ transmitByte('\n');
 printWord(rawbusvoltage);
 transmitByte('\n');
 dtostrf(busV,4,2,buffer);
+printString("Raw Bus Voltage:");
+transmitByte('\n');
 printString(buffer);
 transmitByte('\n');
 
@@ -127,7 +129,10 @@ transmitByte('\n');
 dtostrf(power_W,6,2,buffer);
 printString(buffer);
 transmitByte('\n');
-_delay_ms(15);
+transmitByte('\n');
+transmitByte('\n');
+
+_delay_ms(500);
 }
 }
 
