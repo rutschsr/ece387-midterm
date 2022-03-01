@@ -61,7 +61,7 @@ if level_of_compilation >= 1:
     cmd = 'rm *.hex'
     run_command(cmd)
     for fs in files_to_compile:
-        cmd = path_win_avr + 'avr-gcc -Wall -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o '+fs+'.o '+fs+'.c'
+        cmd = path_win_avr + 'avr-gcc -Wall -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o '+fs+'.o '+fs+'.c -lm'
         run_command(cmd)
     
 

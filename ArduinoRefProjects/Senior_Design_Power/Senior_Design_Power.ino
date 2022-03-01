@@ -25,16 +25,17 @@ void loop(void)
   float shuntvoltage_mV=0;
   float loadvoltage=0;
   
-  voltage_V =ina219.getBusVoltage_V();
+  voltage_V =ina219.getShuntVoltage_mV();
   power_mW = ina219.getPower_mW();
   current_mA = ina219.getCurrent_mA();
   shuntvoltage_mV=ina219.getShuntVoltage_mV();
   float power_W=power_mW/1000;
   loadvoltage=voltage_V+(shuntvoltage_mV/1000);
-  power_W=(current_mA/1000)*loadvoltage; //(measured voltage)
- // Serial.println(voltage_V);
+  //power_W=(current_mA/1000)*loadvoltage; //(measured voltage)
+  //power_W=ina219.getShuntVoltage_raw();
+  //Serial.println(current_mA);
   
   Serial.println(power_W);
  Serial.print("");
-  delay(10);
+  delay(100);
 }
