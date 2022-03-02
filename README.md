@@ -5,7 +5,7 @@ I intend to present on connecting the Texas Instruments INA219 sensor to the Ard
 
 
 Intended operation:
-1. Utilize i2cmaster, de-arduinoed Adafruit ref library and USART libraries
+1. Utilize i2cmaster and USART libraries
 2. Read in current/voltage/power from sensor
 3. Print to serial monitor using USART.
 
