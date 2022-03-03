@@ -31,6 +31,7 @@ i2cmaster.h, twimaster.c, usart.h, usart.c are dependencies
 
 
 
+Youtube Demonstration: https://youtu.be/ROWTx2wqb9A
 
 AVRFREEKS help: https://www.avrfreaks.net/forum/i2c-stopping-project-functionality-atmega328p
 
