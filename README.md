@@ -61,6 +61,8 @@ avr-gcc and avrdude are used from command line on a linux (Ubuntu 20.04 Virtual 
 
 A python compile script is used to compile all three C documents, the i2cmaster code, the usart code, and the chipinterface for C. This then uses AVRdude to program the arduino.
 
+Not much could be used from readily availble Arduino Library files for the INA 219. The Adafruit INA 219 Arduino library linked below and included in the Arduino Reference libraries folder did not have any usable code and was only used for reference on correctly bit-shifting to read data from some of the registers.
+
 i2cmaster.h, twimaster.c, usart.h, usart.c are dependencies
 
 [![Img alt text](https://img.youtube.com/vi/ROWTx2wqb9A/0.jpg)](https://www.youtube.com/watch?v=ROWTx2wqb9A)
@@ -75,6 +77,7 @@ AVRFREEKS help: https://www.avrfreaks.net/forum/i2c-stopping-project-functionali
 
 i2cmaster documentation: https://damadmai.github.io/pfleury/group__pfleury__ic2master.html 
 
+Adafruit Arduino INA 219 Library: https://github.com/adafruit/Adafruit_INA219
 
 
 Calibration Register: 
