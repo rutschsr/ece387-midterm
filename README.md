@@ -42,6 +42,7 @@ A python compile script is used to compile all three C documents, the i2cmaster 
 
 i2cmaster.h, twimaster.c, usart.h, usart.c are dependencies
 
+[![Img alt text](https://img.youtube.com/vi/ROWTx2wqb9A/0.jpg)](https://www.youtube.com/watch?v=ROWTx2wqb9A)
 
 Full Explanation availible:
 https://srutschilling.net/ECE387/MidtermTI-INA219/Images/Values.png
