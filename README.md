@@ -1,6 +1,8 @@
 # ece387-midterm
 ece 387 midterm project
 
+![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/ArduinoSetup.JPEG)
+
 The Texas Instruments INA 219 Chip is a DC voltage /  current / power measurement IC that utilizes the I2C communication protocol. The INA meausres DC current by measuring the current drop over a shunt resistor. This shunt resistor has a value of 0.1 Ohm on the breakout board used here. From 
 
 The I2C protocol allows multiple devices to be connected to it at once by having a 7 bit address for each of the devices. The 8th bit of the address signal sent is the R/W bit, which tells the I2C slave device whether data is going to be sent or recieved. There is also a 9th bit, an aknowledge bit. This bit is 0 in the write mode and 1 in the read mode. INA219 Chip only operates as an I2C slave device. Most significant byte first. Data for the bus and shunt voltages, as well as the current and power is stored in 16 bit registers. Accessing a particular register on the INA219 is accomplished by writing the appropriate address value for the requested data register to a register pointer located at addresss 0x00. This updates the register pointer so when the I2C read bit is sent the chip knows what data to send. (datasheet pg 14) The value for the register pointer is the first byte transferred after the slave address byte with R/W bit LOW.
