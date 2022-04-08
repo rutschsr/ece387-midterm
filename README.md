@@ -1,5 +1,7 @@
-# ece387-midterm
-ece 387 midterm project
+
+# ECE 387 Midterm Project
+
+## Texas Instruments INA219 Current and Power Measurement Chip
 
 ![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/ArduinoSetup.JPEG)
 
