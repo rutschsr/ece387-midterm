@@ -29,6 +29,7 @@ The INA 219 contains 6 different data registers as seen in the register table fr
 
 
 
+<!-- 
 INA 219 Register List (Datasheet page 18):
 
 | Address      | Hex | Register Name |
@@ -38,13 +39,15 @@ INA 219 Register List (Datasheet page 18):
 | 02   | 0x02        | Bus Voltage |
 | 03   | 0x03        | Power |
 | 04   | 0x04        | Current |
-| 05   | 0x05        | Calibration |
+| 05   | 0x05        | Calibration | -->
 
 ![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/RegisterAddresses.png)
 
 Register Explanation and addresses.
 
-The ATMEGA A328P Microcontroller has a built in I2C-compatible 2-wire serial interface called TWI. This bus is hardware based and allows for up to 128 devices to be connected to the same two pins. The hardware based application with the TWI/ I2C library produced by Peter Fluery (Link) used for this project ensures that other system timers/counters are not tied up by the I2C operation. The only other dependency for the project other than the afformentioned Fleury I2C (twinmaster.c/twinmaster.h) library is the USART serial library. The USART library is used to print the voltage, current, and power data to the serial monitor where it can be read from a PC.
+## Interfacing with ATMEGA A328P From C
+
+The ATMEGA A328P Microcontroller has a built in I2C-compatible 2-wire serial interface called TWI. This bus is hardware based and allows for up to 128 devices to be connected to the same two pins. The hardware based application with the TWI/ I2C library produced by Peter Fluery ([Link](http://www.peterfleury.epizy.com/avr-software.html?i=1)) used for this project ensures that other system timers/counters are not tied up by the I2C operation. The only other dependency for the project other than the afformentioned Fleury I2C (twinmaster.c/twinmaster.h) library is the USART serial library. The USART library is used to print the voltage, current, and power data to the serial monitor where it can be read from a PC.
 
 In order to print the float values calculated from the current they need to first be converted to a string because the USART library does not provide for sending float values to the Serial Monitor. Due to this issue, while compiling using avr-gcc the -lm flag needs to be set in order to use the math function that converts this.
 
