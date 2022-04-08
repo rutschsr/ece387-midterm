@@ -3,10 +3,21 @@ ece 387 midterm project
 
 ![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/ArduinoSetup.JPEG)
 
-The Texas Instruments INA 219 Chip is a DC voltage /  current / power measurement IC that utilizes the I2C communication protocol. The INA meausres DC current by measuring the current drop over a shunt resistor. This shunt resistor has a value of 0.1 Ohm on the breakout board used here. From 
+The Texas Instruments INA 219 Chip is a DC voltage /  current / power measurement IC that utilizes the I2C communication protocol. The INA meausres DC current by measuring the current drop over a shunt resistor. This shunt resistor has a value of 0.1 Ohm on the breakout board used here. 
+
+
 ![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/I2C_1.png)
 
+I2C wiring connection diagram.
+
+
+
+
 ![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/I2C_2.png)
+
+
+I2C protocol timing chart.
+
 
 The I2C protocol uses two pins, SCL (clock) and SDA (data) and requires pull up resistor on both the SCL and SDA lines, the Adafruit clone breakout board with the INA219 I am using has a built in 10k ohm resistor on each. The Texas Instruments INA 219 IC also can function on both 3.3V and 5V logic systems. 0.1 Ohm shunt resistor is included on the breakout board. On the Arduino the INA 219 IC is running in high speed I2C mode (1000khz).
 
@@ -28,13 +39,18 @@ INA 219 Register List (Datasheet page 18):
 | 05   | 0x05        | Calibration |
 
 ![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/RegisterAddresses.png)
+
+Register Explanation and addresses.
+
 The ATMEGA A328P Microcontroller has a built in I2C-compatible 2-wire serial interface called TWI. This bus is hardware based and allows for up to 128 devices to be connected to the same two pins. The hardware based application with the TWI/ I2C library produced by Peter Fluery (Link) used for this project ensures that other system timers/counters are not tied up by the I2C operation. The only other dependency for the project other than the afformentioned Fleury I2C (twinmaster.c/twinmaster.h) library is the USART serial library. The USART library is used to print the voltage, current, and power data to the serial monitor where it can be read from a PC.
 
 In order to print the float values calculated from the current they need to first be converted to a string because the USART library does not provide for sending float values to the Serial Monitor. Due to this issue, while compiling using avr-gcc the -lm flag needs to be set in order to use the math function that converts this.
 
 The configuration and calibration registers on the INA 219 can be used to have the INA 219 calculate the current and power values, so they can just be read out and directly used by the microcontroller, but they do need to be programmed. These registers are also volotile and must be reprogrammed each time the sensor is power cycled. I did not program these registers with my program, instead relying on the Arduino to complete these calculations.
 
+
 ![alt text](https://srutschilling.net/ECE387/MidtermTI-INA219/Images/Values.png)
+
 
 avr-gcc and avrdude are used from command line on a linux (Ubuntu 20.04 Virtual Machine, Windows 10 Host) to compile and program the project. The arduino IDEs Serial monitor (or a homegrown python script from my senior design project) will be used to view the serial output.
 
@@ -45,7 +61,7 @@ i2cmaster.h, twimaster.c, usart.h, usart.c are dependencies
 [![Img alt text](https://img.youtube.com/vi/ROWTx2wqb9A/0.jpg)](https://www.youtube.com/watch?v=ROWTx2wqb9A)
 
 Full Explanation availible:
-https://srutschilling.net/ECE387/MidtermTI-INA219/Images/Values.png
+https://srutschilling.net/ECE387/MidtermTI-INA219/
 
 
 Youtube Demonstration: https://youtu.be/ROWTx2wqb9A
