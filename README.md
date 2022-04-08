@@ -61,9 +61,11 @@ avr-gcc and avrdude are used from command line on a linux (Ubuntu 20.04 Virtual 
 
 A python compile script is used to compile all three C documents, the i2cmaster code, the usart code, and the chipinterface for C. This then uses AVRdude to program the arduino.
 
-All of the source code files and the python compile script are located in the src folder. The command to compile and program the Arduino is simply 
+All of the source code files and the python compile script are located in the [src](https://github.com/rutschsr/ece387-midterm/tree/main/src) folder. The command to compile and program the Arduino is:
 
 `python compile_Script.py 4`
+
+
 
 Not much could be used from readily availble Arduino Library files for the INA 219. The Adafruit INA 219 Arduino library linked below and included in the Arduino Reference libraries folder did not have any usable code and was only used for reference on correctly bit-shifting to read data from some of the registers.
 
