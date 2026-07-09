@@ -17,7 +17,7 @@ I2C wiring connection diagram.
 
 
 
-![alt text]()
+![alt text](https://r2.srutschilling.net/ECE387/Midterm/I2C_2.png)
 
 
 I2C protocol timing chart.
