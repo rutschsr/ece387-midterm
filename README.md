@@ -10,14 +10,14 @@
 The Texas Instruments INA 219 Chip is a DC voltage /  current / power measurement IC that utilizes the I2C communication protocol. The INA meausres DC current by measuring the current drop over a shunt resistor. This shunt resistor has a value of 0.1 Ohm on the breakout board used here. 
 
 
-![alt text](https://r2.srutschilling.net/ECE387/MidtermTI-INA219/Images/I2C_1.png)
+![alt text](https://r2.srutschilling.net/ECE387/Midterm/I2C_1.png)
 
 I2C wiring connection diagram.
 
 
 
 
-![alt text](https://r2.srutschilling.net/ECE387/MidtermTI-INA219/Images/I2C_2.png)
+![alt text]()
 
 
 I2C protocol timing chart.
@@ -43,7 +43,7 @@ INA 219 Register List (Datasheet page 18):
 | 04   | 0x04        | Current |
 | 05   | 0x05        | Calibration | -->
 
-![alt text](https://r2.srutschilling.net/ECE387/MidtermTI-INA219/Images/RegisterAddresses.png)
+![alt text](https://r2.srutschilling.net/ECE387/Midterm/RegisterAddresses.png)
 
 Register Explanation and addresses.
 
@@ -56,7 +56,7 @@ In order to print the float values calculated from the current they need to firs
 The configuration and calibration registers on the INA 219 can be used to have the INA 219 calculate the current and power values, so they can just be read out and directly used by the microcontroller, but they do need to be programmed. These registers are also volotile and must be reprogrammed each time the sensor is power cycled. I did not program these registers with my program, instead relying on the Arduino to complete these calculations.
 
 
-![alt text](https://r2.srutschilling.net/ECE387/MidtermTI-INA219/Images/Values.png)
+![alt text](https://r2.srutschilling.net/ECE387/Midterm/Values.png)
 
 
 avr-gcc and avrdude are used from command line on a linux (Ubuntu 20.04 Virtual Machine, Windows 10 Host) to compile and program the project. The arduino IDEs Serial monitor (or a homegrown python script from my senior design project) will be used to view the serial output.
